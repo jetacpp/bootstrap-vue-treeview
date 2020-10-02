@@ -72,6 +72,7 @@
 </template>
 
 <script>
+    const Vue = require('vue').default;
     import EventBus from '../EventBus';
     import DropBetweenZone from './DropBetweenZone.vue';
 
