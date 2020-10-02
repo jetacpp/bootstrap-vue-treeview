@@ -180,17 +180,22 @@
             },
             deleteNode(nodeData) {
                 let nodes = this.data
-                let idx = nodes.indexOf(nodeData)
+                let idx = nodes.indexOf(nodeData.data)
                 nodes.splice(idx, 1)
             },
             menuItemSelected(item, node) {
                 switch (item.code) {
                     case 'DELETE_NODE':
                         node.delete()
+                        this.$emit('contextMenuItemSelect', item, node)
+                        break
                     case 'RENAME_NODE':
                         node.startRenaming()
+                        this.$emit('contextMenuItemSelect', item, node)
+                        break
                     default:
                         this.$emit('contextMenuItemSelect', item, node)
+                        break
                 }
             }
         },
