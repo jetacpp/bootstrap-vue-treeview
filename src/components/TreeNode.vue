@@ -231,17 +231,21 @@
                 return this.$refs.childNodes || []
             },
             dragstart(ev) {
-                this.dropDisabled = true
-                ev.dataTransfer.dropEffect = 'none'
-                this.$emit('nodeDragStart')
-                EventBus.$emit('nodeDragStart', this)
-                // didn't use dataTransfer it's not fully supported by ie
-                // and beacuse it's not available in the dragover event handler
-                if (window._bTreeView === undefined) {
-                    window._bTreeView = {}
-                }
-                _bTreeView.draggedNodeData = this.data
-                _bTreeView.draggedNodeKey = this.data[this.keyProp]
+
+                setTimeout(() => {
+                    this.dropDisabled = true
+                    ev.dataTransfer.dropEffect = 'none'
+                    this.$emit('nodeDragStart')
+                    EventBus.$emit('nodeDragStart', this)
+                    // didn't use dataTransfer it's not fully supported by ie
+                    // and beacuse it's not available in the dragover event handler
+                    if (window._bTreeView === undefined) {
+                        window._bTreeView = {}
+                    }
+                    _bTreeView.draggedNodeData = this.data
+                    _bTreeView.draggedNodeKey = this.data[this.keyProp]
+                }, 10)
+
             },
             drop(ev) {
                 if (this.data[this.childrenProp] === undefined) {
