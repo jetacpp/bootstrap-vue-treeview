@@ -1,5 +1,5 @@
 const path = require('path');
-const VuePlugin = require('rollup-plugin-vue');
+const VuePlugin = require('rollup-plugin-vue').default;
 const resolve = require('rollup-plugin-node-resolve')
 const commonjs = require('rollup-plugin-commonjs')
 const babel = require('rollup-plugin-babel')
