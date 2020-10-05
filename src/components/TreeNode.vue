@@ -36,6 +36,8 @@
                        v-on:keyup.esc.stop="cancelRenaming"
                        v-on:keyup.enter.stop="endRenaming">
                 <span v-else>{{ data[labelProp] }}</span>
+                <span :class="[childrenCountClass]"
+                      v-if="hasChildren && showChildrenCount">{{getChildrenCount()}}</span>
             </span>
         </div>
         <div class="tree-node-children"
@@ -130,7 +132,15 @@
             contextMenu: {
                 type: Boolean,
                 default: true
-            }
+            },
+            showChildrenCount: {
+                type: Boolean,
+                default: false
+            },
+            childrenCountClass: {
+                type: String,
+                default: "badge badge-pill badge-dark"
+            },
         },
         data() {
             return {
@@ -229,6 +239,9 @@
             },
             getChildNodes() {
                 return this.$refs.childNodes || []
+            },
+            getChildrenCount() {
+                return this.data[this.childrenProp] && Array.isArray(this.data[this.childrenProp]) && this.data[this.childrenProp].length || 0
             },
             dragstart(ev) {
 

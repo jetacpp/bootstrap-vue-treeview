@@ -18,7 +18,9 @@ var app = new Vue({
 						:renameNodeOnDblClick="true"
 						:showIcons="true"
 						iconClassProp="icon"
-						prependIconClass="fas"
+                        prependIconClass="fas"
+                        :showChildrenCount="true"
+                        childrenCountClass="badge badge-pill badge-primary"
 						@contextMenuItemSelect="menuItemSelected"
 						@nodeSelect="nodeSelect"></b-tree-view>
 				</div>

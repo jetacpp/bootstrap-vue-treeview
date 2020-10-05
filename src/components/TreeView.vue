@@ -22,6 +22,8 @@
                     :showIcon="showIcons"
                     :prependIconClass="prependIconClass"
                     :contextMenu="contextMenu"
+                    :showChildrenCount="showChildrenCount"
+                    :childrenCountClass="childrenCountClass"
                     ref="rootNodes"
                     @nodeSelect="nodeSelect"
                     @nodeDragStart="nodeDragStart"
@@ -101,6 +103,13 @@
             showIcons: {
                 type: Boolean,
                 default: false
+            },
+            showChildrenCount: {
+                type: Boolean,
+                default: false
+            },
+            childrenCountClass: {
+                type: String,
             }
         },
         data() {
