@@ -60,6 +60,8 @@
                         :showIcon="showIcon"
                         :prependIconClass="prependIconClass"
                         :contextMenu="contextMenu"
+                        :showChildrenCount="showChildrenCount"
+                        :childrenCountClass="childrenCountClass"
                         @nodeSelect="childNodeSelect"
                         @nodeDragStart="nodeDragStart"
                         @deleteNode="deleteChildNode">
